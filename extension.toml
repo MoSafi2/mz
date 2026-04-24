@@ -1,6 +1,6 @@
-id = "mojo-unofficial"
-name = "Mojo (unofficial)"
-description = "Mojo support (unofficial)"
+id = "mojo"
+name = "Mojo"
+description = "Mojo support"
 version = "0.2.0"
 schema_version = 1
 authors = ["stano"]
@@ -12,4 +12,4 @@ commit = "03966fb3f209bea86844aab3bd0f2158a5a8bb8d"
 
 [language_servers.mojo-lsp]
 name = "mojo-lsp"
-language = "Mojo"
+languages = ["Mojo"]
