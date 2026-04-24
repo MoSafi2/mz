@@ -1,9 +1,16 @@
 ; Based on Zed's highlights for Python in crates/languages/src/python/highlights.scm
-; - the initial version is a simple copy to start from somewhere
+; Adapted for Mojo to achieve parity with the tree-sitter-mojo grammar
 
 (attribute attribute: (identifier) @property)
 (type (identifier) @type)
 (generic_type (identifier) @type)
+
+; Mojo-specific type nodes
+(mlir_type) @type.builtin
+(type_parameter) @type
+(union_type (type) @type)
+(constrained_type (type) @type)
+(member_type (type) @type)
 
 ; Type alias
 (type_alias_statement "type" @keyword)
@@ -42,6 +49,10 @@
 (class_definition
   name: (identifier) @type.class.definition)
 
+; Traits 
+(trait_definition
+  name: (identifier) @type.class.definition)
+
 (call
   function: (identifier) @type.class.call
   (#match? @type.class.call "^[A-Z][A-Z0-9_]*[a-z]"))
@@ -68,13 +79,16 @@
   (float)
 ] @number
 
-; Self references
+; Self references and keyword identifiers
 
 [
   (parameters (identifier) @variable.special)
   (attribute (identifier) @variable.special)
   (#match? @variable.special "^self|cls$")
 ]
+
+(keyword_identifier) @variable
+(argument_convention) @keyword.modifier
 
 (comment) @comment
 (string) @string
@@ -96,7 +110,7 @@
 ; Docstrings.
 (function_definition
   "async"?
-  "def"
+  ["def" "fn"]
   name: (_)
   (parameters)?
   body: (block (expression_statement (string) @string.doc)))
@@ -132,6 +146,8 @@
   "//"
   "//="
   "/="
+  "@"
+  "@="
   "&"
   "%"
   "%="
@@ -161,9 +177,15 @@
 ] @operator
 
 [
-  "alias"
+  "as"
+  "assert"
+  "async"
+  "await"
   "borrowed"
   "break"
+  "capturing"
+  "case"
+  "class"
   "comptime"
   "continue"
   "def"
@@ -171,25 +193,37 @@
   "del"
   "elif"
   "else"
+  "escaping"
   "except"
+  "exec"
   "finally"
   "fn"
   "for"
   "from"
+  "global"
   "if"
   "import"
   "inout"
+  "lambda"
+  "match"
+  "mut"
+  "nonlocal"
   "out"
   "owned"
   "pass"
   "print"
   "raise"
   "raises"
+  "read"
+  "ref"
   "return"
   "struct"
   "trait"
   "try"
+  "unified"
   "var"
+  "where"
   "while"
   "with"
+  "__comptime_assert"
 ] @keyword
