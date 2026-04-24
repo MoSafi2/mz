@@ -14,7 +14,7 @@ Basic support for `mojo-lsp-server`.
 
 Zed extension development expects Rust installed via `rustup`.
 
-This repository depends on `zed_extension_api = "0.7.0"`, which requires Rust 2024 support. The repo pins Rust `1.85.0` in [rust-toolchain.toml](/home/mohamed/Documents/Projects/mz/rust-toolchain.toml:1).
+This repository depends on `zed_extension_api = "0.7.0"` and currently resolves dependencies that require Rust `1.86.0`. The repo pins that version in [rust-toolchain.toml](/home/mohamed/Documents/Projects/mz/rust-toolchain.toml:1).
 
 # Zed settings
 
