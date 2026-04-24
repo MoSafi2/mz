@@ -4,7 +4,7 @@ description = "Mojo support (unofficial)"
 version = "0.2.0"
 schema_version = 1
 authors = ["stano"]
-repository = "https://github.com/freespirit/mz"
+repository = "https://github.com/MoSafi2/mz"
 
 [grammars.mojo]
 repository = "https://github.com/lsh/tree-sitter-mojo"
