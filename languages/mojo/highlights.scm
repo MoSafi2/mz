@@ -49,7 +49,7 @@
 (class_definition
   name: (identifier) @type.class.definition)
 
-; Traits 
+; Traits
 (trait_definition
   name: (identifier) @type.class.definition)
 
@@ -64,6 +64,10 @@
  (#match?
    @function.builtin
    "^(abs|all|any|ascii|bin|bool|breakpoint|bytearray|bytes|callable|chr|classmethod|compile|complex|delattr|dict|dir|divmod|enumerate|eval|exec|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|isinstance|issubclass|iter|len|list|locals|map|max|memoryview|min|next|object|oct|open|ord|pow|print|property|range|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|vars|zip|__import__)$"))
+
+; Assignment modifiers (var, comptime, ref)
+(assignment
+  ["var" "comptime" "ref"] @keyword.modifier)
 
 ; Literals
 
