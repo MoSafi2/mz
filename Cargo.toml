@@ -10,4 +10,4 @@ description = "An unofficial support for Mojo in Zed"
 crate-type = ["cdylib"]
 
 [dependencies]
-zed_extension_api = "0.2.0"
+zed_extension_api = "0.7.0"
