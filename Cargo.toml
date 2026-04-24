@@ -1,5 +1,5 @@
 [package]
-name = "mojo_unofficial"
+name = "mojo"
 version = "0.2.0"
 edition = "2024"
 authors = ["stano"]
